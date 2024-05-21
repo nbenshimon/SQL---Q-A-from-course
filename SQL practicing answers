@@ -1,0 +1,114 @@
+
+-- q1
+select *
+from payment p
+where customer_id = '343'
+
+--q2
+select title
+from film f
+where title like '%Airport%' 
+
+--q3
+select first_name , last_name
+from customer c
+where last_name like 'M%' 
+
+--q4
+select*
+from film f
+where rental_rate> '4.99'
+
+--q5
+select film_id,title,release_year,rating
+from film
+where film_id < 100
+
+--q6
+select title as "Movie Name"
+from film
+where rating = 'R'
+
+--q7
+select film_id, title, release_year, rating, rental_duration
+from film f
+where rating in ('PG','G','R')
+
+--q8
+select film_id, title, release_year, rating, rental_duration
+from film f
+where rating not in ('PG','G','R')
+
+--q9
+select title, length
+from film f
+where length>= 80 and length<=120
+
+--q10
+select
+from rental r
+where rental_date between '2021-07-01 00:00:00' and '2021-07-31 00:00:00'
+
+--q11
+select film_id, title, release_year, rating, rental_duration
+from film f
+where (rental_duration<=3 or rental_duration>=6) and rating = 'G'
+
+--q12
+select film_id, title, release_year, rental_duration
+from film f
+where title ilike ('%Gold%') 
+order by release_year asc 
+
+--q13
+select film_id, title, release_year, rental_duration
+from film f
+where title not like ('%Gold%') 
+order by release_year desc 
+
+
+--WHERE EXTRAS
+--q1
+select*
+from film f
+where special_features ilike ('%Deleted Scenes%') or special_features ilike ('%Behind the Scenes%')
+
+--q2
+select title,release_year
+from film f
+where rating in ('G','R') 
+
+--q3
+select*
+from film f
+where length>=60 and length<=90 
+
+--q4
+select title, length
+from film f
+where replacement_cost<=20
+
+--q5
+select last_name
+from actor a
+where first_name = 'Adam'
+
+--q6
+select first_name, last_name
+from actor a
+where first_name like ('A%') or last_name like ('A%')
+
+--q7
+select first_name, last_name
+from actor a
+where first_name like ('J%') and last_name like ('%S%')
+
+--q8
+select first_name, last_name
+from actor a
+where first_name like ('%Y') or last_name like ('C%')
+
+--q9
+select title, description
+from film f
+where description like ('%Epic%') or description like ('%Drama%') or description like ('%Explorer%') or description like ('%Saga%')
