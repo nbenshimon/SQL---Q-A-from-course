@@ -112,3 +112,51 @@ where first_name like ('%Y') or last_name like ('C%')
 select title, description
 from film f
 where description like ('%Epic%') or description like ('%Drama%') or description like ('%Explorer%') or description like ('%Saga%')
+
+ --Scalar Functions Answers
+--q1
+select 
+concat(first_name, '  ', last_name) as Full_Name
+from actor 
+
+--q2
+select concat(first_name,' ',left(last_name,1), '.') as ful_name
+from actor a
+
+--q3
+select lower (first_name) as lower_first_name, lower (last_name) as lower_last_name, upper (email) as UPPER_EMAIL
+from customer c
+
+--q4
+select rental_rate* 14 as plus_14, replacement_cost,
+least(rental_rate*14, replacement_cost),
+greatest(rental_rate*14, replacement_cost)
+from film f
+
+--q5
+select rental_date, return_date,
+age(return_date::date,rental_date::date) as rental_duration
+from rental r
+
+--q6
+select extract (month from payment_date) as pay_day,
+extract (year from payment_date) as pay_year
+from payment p
+
+--q7
+select payment_id, payment_date, amount,
+floor(amount) as round_up_amount,
+ceil(amount) as round_down_amount
+from payment p
+
+--q8
+select replace (lower(title),'holes','pit')
+from film f
+
+--q9
+select last_name,
+  char_length(last_name)
+from customer c
+
+
+
